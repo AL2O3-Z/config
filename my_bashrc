@@ -1,0 +1,47 @@
+# .bashrc
+
+# User specific aliases and functions
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# .bashrc
+HISTSIZE=200000
+# === Begin ====
+datestamp_for_history(){
+export bash_id=$(echo $PPID)
+export username=$(whoami)
+export workdir=$(echo $PWD)
+export infohis=`history 1`
+echo $username $bash_id $workdir $infohis >> $HOME/.history-timestamp
+echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"
+}
+###################################################
+make_ps(){
+h=$(hostname)
+add=$(hostname|awk -F'-' '{print $1}')
+if [[ $add == "tc" ]]
+then
+ PS1="\[\e[01;31m\]\u@\[\e[01;32m\]\h.$add \[\e[0;31m\]\w\[\e[37;36m\]\$ \[\e[1;37m\]"
+else
+ PS1="\[\033[01;31m\]\u@\[\033[01;33m\]\h.$add \[\033[0;31m\]\w\[\033[37;36m\]\$ \[\033[1;37m\]"
+fi
+}
+###################################################
+
+make_ps
+export LS_COLORS='di=34;1:ln=36:ex=32:*.tar.gz=31'
+export EDITOR=/usr/bin/vim
+export PATH=$PATH:$HOME/opscript/optool
+alias vm="$HOME/opbin/optool/open_vmstat 1"
+alias io="$HOME/opbin/optool/open_iostat 1"
+alias vir="vim -R"
+alias ls='ls --color'
+alias grep="grep --color"
+# === End =====
+alias ml="/home/map/opbin/itools/python/bin/python2.6 /home/map/opbin/itools/bin/modules.py list"
+
+export PATH=$PATH:/home/map//opbin/occ-1.0/bin
+[[ -s "/home/map/.jumbo/etc/bashrc" ]] && source "/home/map/.jumbo/etc/bashrc"
