@@ -1,0 +1,21 @@
+set encoding=utf-8
+set fencs=utf-8,gb2312,ucs-bom,shift-jis,gb18030,gbk,cp936
+set termencoding=gbk
+set fileencodings=utf-8
+
+set showmatch
+set nocompatible
+
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set cindent
+set nu
+set hlsearch
+set backspace=2
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+syntax on
