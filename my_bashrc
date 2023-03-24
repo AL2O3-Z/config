@@ -34,6 +34,7 @@ fi
 make_ps
 export LS_COLORS='di=34;1:ln=36:ex=32:*.tar.gz=31'
 export EDITOR=/usr/bin/vim
+export PROMPT_COMMAND=datestamp_for_history
 export PATH=$PATH:$HOME/opscript/optool
 alias vm="$HOME/opbin/optool/open_vmstat 1"
 alias io="$HOME/opbin/optool/open_iostat 1"
